@@ -32,3 +32,9 @@ add_test(NAME test-caesarcipher COMMAND testCaesarCipher)
 add_executable(testPlayfairCipher testPlayfairCipher.cpp)
 target_link_libraries(testPlayfairCipher MPAGSCipher)
 add_test(NAME test-playfaircipher COMMAND testPlayfairCipher)
+
+# Test VigenereCipher Class
+add_executable(testVigenere testVigenere.cpp)
+target_link_libraries(testVigenere MPAGSCipher)
+add_test(NAME test-viginere COMMAND testVigenere)
+
