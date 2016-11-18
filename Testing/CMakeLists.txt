@@ -38,3 +38,8 @@ add_executable(testVigenere testVigenere.cpp)
 target_link_libraries(testVigenere MPAGSCipher)
 add_test(NAME test-viginere COMMAND testVigenere)
 
+# Test Cipher Class
+add_executable(testCiphers testCiphers.cpp)
+target_link_libraries(testCiphers MPAGSCipher)
+add_test(NAME test-Ciphers COMMAND testCiphers)
+
