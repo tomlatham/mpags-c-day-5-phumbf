@@ -1,6 +1,8 @@
 #ifndef MPAGSCIPHER_CIPHER_HPP
 #define MPAGSCIPHER_CIPHER_HPP
 
+#include "CipherMode.hpp"
+
 /**
  * \file Cipher.hpp
  * \brief Contains the declaration of the Cipher class
