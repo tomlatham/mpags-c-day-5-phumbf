@@ -50,7 +50,7 @@ class VigenereCipher: public Cipher {
     /// The cipher key
     std::string key_ = "";
 
-    // Lookup tables generated from the key
+    /// Lookup tables generated from the key
     std::map<char,CaesarCipher> charlookup_;
 
     

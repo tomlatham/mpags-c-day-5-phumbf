@@ -28,21 +28,21 @@ void VigenereCipher::setKey(const std::string& key )
     
     // loop over the key
     for(const auto elem: key_){
-        //Check that we don't repeat letters
-        if(charlookup_.find(elem) != charlookup_.end())
-        {
-            continue;
-        }
-        
-    // Find the letter position in the alphabet
-    size_t index = Alphabet::alphabet.find(elem);
-    
-    // Create a CaesarCipher using this position as a key
-    CaesarCipher cipher {index};
-    
-    // Insert a std::pair of the letter and CaesarCipher into the lookup
-    charlookup_.insert(std::make_pair(elem, cipher));
-    
+	//Check that we don't repeat letters
+	if(charlookup_.find(elem) != charlookup_.end())
+	{
+	    continue;
+	}
+
+	// Find the letter position in the alphabet
+	size_t index = Alphabet::alphabet.find(elem);
+
+	// Create a CaesarCipher using this position as a key
+	CaesarCipher cipher {index};
+
+	// Insert a std::pair of the letter and CaesarCipher into the lookup
+	charlookup_.insert(std::make_pair(elem, cipher));
+
     }
 }
 
@@ -62,7 +62,7 @@ std::string VigenereCipher::applyCipher(const std::string& inputText, const Ciph
         
         // Find the Caesar cipher from the lookup
         auto iter = charlookup_.find( keyLetter );
-        auto cip = (*iter).second;
+        auto& cip = (*iter).second;
         
         // Caesar Cipher (De)Encryption
         const std::string let{inputText[i]};

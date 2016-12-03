@@ -12,6 +12,11 @@
 #include <memory>
 #include <vector>
 
+bool testCipher( const Cipher& cipher, const CipherMode mode, const std::string& inputText, const std::string& outputText )
+{
+  return cipher.applyCipher( inputText, mode ) == outputText;
+}
+
 
 TEST_CASE("Caesar, Playfair and Vigenere encryption and decryption tests"){
     
@@ -32,8 +37,9 @@ TEST_CASE("Caesar, Playfair and Vigenere encryption and decryption tests"){
     
     // Loop which checks whether encryption and decryption give the correct results
     for(size_t i{0}; i<testnumber.size(); i++){
-        REQUIRE( testnumber[i]->applyCipher(encryption[i],CipherMode::Encrypt) == decryption[i]);
-        REQUIRE( testnumber[i]->applyCipher(decryption[i],CipherMode::Decrypt) == encryption[i]);
-}
+	REQUIRE( testnumber[i] );
+        REQUIRE( testCipher( *testnumber[i], CipherMode::Encrypt, encryption[i], decryption[i] ) );
+        REQUIRE( testCipher( *testnumber[i], CipherMode::Decrypt, decryption[i], encryption[i] ) );
+    }
 }
 
